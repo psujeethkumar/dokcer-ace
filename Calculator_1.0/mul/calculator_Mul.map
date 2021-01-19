@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="mul" version="8.0.5.0" xmlns:map="mul">
+    <input path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <output path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://tempuri.org/"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="calculator_Mul">
+        <input namespace="http://tempuri.org/" path="mb:msg(Multiply,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Multiply"/>
+        <output namespace="http://tempuri.org/" path="mb:msg(MultiplyResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_MultiplyResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Multiply/Properties"/>
+            <output path="$ComIbmMessageAssembly_MultiplyResponse/Properties"/>
+        </move>
+        <expression>
+            <input path="$ComIbmMessageAssembly_Multiply/Multiply/intA" var="intA"/>
+            <input path="$ComIbmMessageAssembly_Multiply/Multiply/intB" var="intB"/>
+            <output path="$ComIbmMessageAssembly_MultiplyResponse/MultiplyResponse/MultiplyResult"/>
+            <code lang="xpath">$intA*$intB</code>
+        </expression>
+    </mappingDeclaration>
+</mappingRoot>

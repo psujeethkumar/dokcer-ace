@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="add" version="8.0.5.0" xmlns:map="add">
+    <input path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <output path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://tempuri.org/"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="calculator_Add">
+        <input namespace="http://tempuri.org/" path="mb:msg(Add,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Add"/>
+        <output namespace="http://tempuri.org/" path="mb:msg(AddResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_AddResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Add/Properties"/>
+            <output path="$ComIbmMessageAssembly_AddResponse/Properties"/>
+        </move>
+        <expression>
+            <input path="$ComIbmMessageAssembly_Add/Add/intA" var="intA"/>
+            <input path="$ComIbmMessageAssembly_Add/Add/intB" var="intB"/>
+            <output path="$ComIbmMessageAssembly_AddResponse/AddResponse/AddResult"/>
+            <code lang="xpath">$intA+$intB</code>
+        </expression>
+    </mappingDeclaration>
+</mappingRoot>

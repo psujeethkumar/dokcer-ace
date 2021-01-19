@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="div" version="8.0.5.0" xmlns:map="div">
+    <input path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <output path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://tempuri.org/"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="calculator_Div">
+        <input namespace="http://tempuri.org/" path="mb:msg(Divide,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Divide"/>
+        <output namespace="http://tempuri.org/" path="mb:msg(DivideResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_DivideResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Divide/Properties"/>
+            <output path="$ComIbmMessageAssembly_DivideResponse/Properties"/>
+        </move>
+        <expression>
+            <input path="$ComIbmMessageAssembly_Divide/Divide/intA" var="intA"/>
+            <input path="$ComIbmMessageAssembly_Divide/Divide/intB" var="intB"/>
+            <output path="$ComIbmMessageAssembly_DivideResponse/DivideResponse/DivideResult"/>
+            <code lang="xpath">$intA  div $intB</code>
+        </expression>
+    </mappingDeclaration>
+</mappingRoot>

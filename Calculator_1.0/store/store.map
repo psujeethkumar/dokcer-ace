@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="store" version="8.0.5.0" xmlns:map="store">
+    <input path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <output path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://tempuri.org/"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="store">
+        <input namespace="http://tempuri.org/" path="mb:msg(Store,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Store"/>
+        <output namespace="http://tempuri.org/" path="mb:msg(StoreResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_StoreResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Store/Properties"/>
+            <output path="$ComIbmMessageAssembly_StoreResponse/Properties"/>
+        </move>
+        <move>
+            <input path="$ComIbmMessageAssembly_Store/Store/intA"/>
+            <output path="$ComIbmMessageAssembly_StoreResponse/StoreResponse/AddResult"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

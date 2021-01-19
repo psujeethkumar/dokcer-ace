@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="sub" version="8.0.5.0" xmlns:map="sub">
+    <input path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <output path="/RemoteFiles/calculator_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://tempuri.org/"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="calculator_sub">
+        <input namespace="http://tempuri.org/" path="mb:msg(Subtract,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Subtract"/>
+        <output namespace="http://tempuri.org/" path="mb:msg(SubtractResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_SubtractResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Subtract/Properties"/>
+            <output path="$ComIbmMessageAssembly_SubtractResponse/Properties"/>
+        </move>
+        <expression>
+            <input path="$ComIbmMessageAssembly_Subtract/Subtract/intA" var="intA"/>
+            <input path="$ComIbmMessageAssembly_Subtract/Subtract/intB" var="intB"/>
+            <output path="$ComIbmMessageAssembly_SubtractResponse/SubtractResponse/SubtractResult"/>
+            <code lang="xpath">$intA - $intB</code>
+        </expression>
+    </mappingDeclaration>
+</mappingRoot>
