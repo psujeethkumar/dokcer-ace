@@ -56,7 +56,7 @@
       <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="120,294" labelName="ws_Store">
         <translation xmi:type="utility:ConstantString" string="ws_Store"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="192,294" queueName="CALCULATOR.REQUEST" connection="CLIENT" destinationQueueManagerName="CALC_QMGR" queueManagerHostname="172.17.0.2" listenerPortNumber="1414" channelName="CALC.APP.CONN">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="192,294" queueName="CALCULATOR.REQUEST" connection="CLIENT" destinationQueueManagerName="CALC_QMGR" queueManagerHostname="172.17.0.1" listenerPortNumber="1414" channelName="CALC.APP.CONN">
         <translation xmi:type="utility:ConstantString" string="MQStore"/>
       </nodes>
       <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="331,302">
